@@ -256,8 +256,8 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Tipo Contratação</label>
-                        <select class="form-control" name="tipo">
-                           <option value="">Select</option>
+                        <select class="form-control" name="tipo" required>
+                           <option value="">Selecione</option>
                            <option value="CLT">CLT</option>
                            <option value="PJ">PJ</option>
                            <option value="ESTÁGIO">ESTÁGIO</option>
@@ -269,7 +269,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Forma de Pagamento</label>
-                        <select class="form-control select" style="width: 100%;" name="forma_pagamento_id">
+                        <select class="form-control select" style="width: 100%;" name="forma_pagamento_id" required>
                            <option value=""> Selecione um pagamento </option>
                            <?php
 
@@ -429,7 +429,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Tipo Contratação</label>
-                        <select class="form-control" name="tipo" id="tipo">
+                        <select class="form-control" name="tipo" id="tipo" required>
                            <option value="">Selecione</option>
                            <option value="CLT">CLT</option>
                            <option value="PJ">PJ</option>
@@ -442,7 +442,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Forma de Pagamento</label>
-                        <select class="form-control select" style="width: 100%;" name="forma_pagamento_id" id="forma_pagamento_id">
+                        <select class="form-control select" style="width: 100%;" name="forma_pagamento_id" id="forma_pagamento_id" required>
                            <option value=""> Selecione um pagamento </option>
                            <?php
 
@@ -498,7 +498,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Veículos</label>
-                        <select class="form-control select" style="width: 100%;" name="veiculos_id" id="veiculos_id">
+                        <select class="form-control select" style="width: 100%;" name="veiculos_id" id="veiculos_id" required>
 
                            <?php
 
@@ -517,7 +517,7 @@ foreach ($paginas as $key => $pagina) {
 
             </div>
             <div class="modal-footer justify-content-between">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+               <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                <button type="submit" class="btn btn-primary">Salvar
                </button>
             </div>

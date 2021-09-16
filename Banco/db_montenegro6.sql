@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Set-2021 às 04:57
--- Versão do servidor: 10.4.17-MariaDB
--- versão do PHP: 7.4.14
+-- Tempo de geração: 16-Set-2021 às 14:53
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `db_montenegro6`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `acessos`
+--
+
+CREATE TABLE `acessos` (
+  `id` int(11) NOT NULL,
+  `nivel` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `acessos`
+--
+
+INSERT INTO `acessos` (`id`, `nivel`) VALUES
+(1, 'admin'),
+(2, 'Assitente'),
+(3, 'Coordenador'),
+(4, 'Auxiliar'),
+(6, NULL),
+(7, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +110,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `data`, `telefone`, `email`, `cnpj`, `foto`, `usuarios_id`, `servicos_id`, `setores_id`) VALUES
-(7, 'HAPVIDA', '2021-07-03 00:04:14', NULL, NULL, NULL, NULL, 7, 3, 3),
+(7, 'HAPIVIDA', '2021-07-03 00:04:14', NULL, NULL, NULL, NULL, 7, 3, 3),
 (8, 'GFL', '2021-07-05 19:01:25', NULL, NULL, NULL, NULL, 7, 1, 1),
 (9, 'DBA', '2021-07-05 19:25:30', NULL, NULL, NULL, NULL, 7, 1, 1),
 (10, 'NT LOG', '2021-07-05 19:35:18', NULL, NULL, NULL, NULL, 7, 1, 1);
@@ -179,8 +202,10 @@ CREATE TABLE `forma_pagamento` (
 --
 
 INSERT INTO `forma_pagamento` (`id`, `nome`) VALUES
-(4, 'Dinheiro'),
-(5, 'Pix');
+(1, 'Dinheiro'),
+(2, 'Cartão de Crédito'),
+(3, 'Cartão de Débito'),
+(4, 'PIX');
 
 -- --------------------------------------------------------
 
@@ -199,61 +224,9 @@ CREATE TABLE `gaiola` (
 --
 
 INSERT INTO `gaiola` (`id`, `data`, `nome`) VALUES
-(1, '2021-09-02 23:33:51', '01'),
-(2, '2021-09-02 23:33:51', '02'),
-(3, '2021-09-02 23:33:51', '03'),
-(6, '2021-09-15 13:49:06', '04'),
-(7, '2021-09-15 13:49:12', '05'),
-(8, '2021-09-15 13:49:25', '06'),
-(10, '2021-09-15 13:49:39', '08'),
-(13, '2021-09-15 13:50:07', '07'),
-(16, '2021-09-15 13:57:45', '100'),
-(17, '2021-09-15 13:57:54', '101'),
-(18, '2021-09-15 13:58:01', '102'),
-(19, '2021-09-15 13:58:07', '103'),
-(20, '2021-09-15 13:58:15', '104'),
-(21, '2021-09-15 13:58:24', '105'),
-(22, '2021-09-15 13:58:30', '106'),
-(23, '2021-09-15 13:58:37', '107'),
-(24, '2021-09-15 13:58:45', '108'),
-(25, '2021-09-15 13:58:54', '109'),
-(26, '2021-09-15 13:59:00', '110'),
-(27, '2021-09-15 13:59:06', '111'),
-(28, '2021-09-15 13:59:14', '112'),
-(29, '2021-09-15 13:59:22', '113'),
-(30, '2021-09-15 13:59:27', '114'),
-(31, '2021-09-15 13:59:35', '115'),
-(32, '2021-09-15 13:59:42', '116'),
-(33, '2021-09-15 13:59:48', '117'),
-(34, '2021-09-15 13:59:55', '118'),
-(35, '2021-09-15 14:00:02', '119'),
-(36, '2021-09-15 14:00:09', '120'),
-(37, '2021-09-15 14:00:16', '121'),
-(38, '2021-09-15 14:00:22', '122'),
-(39, '2021-09-15 14:00:29', '123'),
-(40, '2021-09-15 14:00:36', '124'),
-(41, '2021-09-15 14:11:42', '09'),
-(42, '2021-09-15 14:11:50', '10'),
-(43, '2021-09-15 14:11:56', '11'),
-(44, '2021-09-15 14:12:02', '12'),
-(45, '2021-09-15 14:12:07', '13'),
-(46, '2021-09-15 14:12:13', '14'),
-(47, '2021-09-15 14:12:19', '15'),
-(48, '2021-09-15 14:12:24', '16'),
-(49, '2021-09-15 14:12:30', '17'),
-(50, '2021-09-15 14:12:36', '18'),
-(51, '2021-09-15 14:12:43', '20'),
-(52, '2021-09-15 14:12:59', '19'),
-(53, '2021-09-15 14:13:11', '50'),
-(54, '2021-09-15 14:13:16', '51'),
-(55, '2021-09-15 14:13:22', '52'),
-(56, '2021-09-15 14:13:28', '53'),
-(57, '2021-09-15 14:13:34', '54'),
-(58, '2021-09-15 14:13:40', '55'),
-(59, '2021-09-15 14:13:55', '55'),
-(60, '2021-09-15 14:14:02', '56'),
-(61, '2021-09-15 14:14:08', '57'),
-(62, '2021-09-15 14:14:16', '58');
+(1, '2021-09-02 23:33:51', '01 a 20'),
+(2, '2021-09-02 23:33:51', '21 a 40'),
+(3, '2021-09-02 23:33:51', '41 a 60');
 
 -- --------------------------------------------------------
 
@@ -274,14 +247,6 @@ CREATE TABLE `logisticas` (
   `regioes_id` int(11) NOT NULL,
   `receber_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `logisticas`
---
-
-INSERT INTO `logisticas` (`id`, `cod_id`, `data`, `data_inicio`, `data_fim`, `qtd`, `clientes_id`, `entregadores_id`, `servicos_id`, `regioes_id`, `receber_id`) VALUES
-(165, 12304780, '2021-09-15 23:35:31', '2021-09-15', '2021-09-15', 2, 10, 37, 1, 74, 71),
-(166, 16342128, '2021-09-15 23:37:53', '2021-09-15', '2021-09-15', 50, 9, 37, 1, 74, 72);
 
 -- --------------------------------------------------------
 
@@ -322,14 +287,6 @@ CREATE TABLE `receber` (
   `rotas_id` int(11) NOT NULL,
   `gaiola_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `receber`
---
-
-INSERT INTO `receber` (`id`, `data`, `qtd`, `recebido`, `usuarios_id`, `clientes_id`, `regioes_id`, `rotas_id`, `gaiola_id`) VALUES
-(71, '2021-09-02 14:16:12', 0, 2, 4, 10, 76, 64, 18),
-(72, '2021-09-17 23:36:13', 50, 100, 4, 9, 74, 34, 27);
 
 -- --------------------------------------------------------
 
@@ -512,10 +469,62 @@ INSERT INTO `veiculos` (`id`, `nome`) VALUES
 --
 
 --
+-- Índices para tabela `acessos`
+--
+ALTER TABLE `acessos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `cargos`
+--
+ALTER TABLE `cargos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `carteira`
+--
+ALTER TABLE `carteira`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_carteira_entregadores1_idx` (`entregadores_id`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_clientes_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_clientes_servicos1_idx` (`servicos_id`),
+  ADD KEY `fk_clientes_setores1_idx` (`setores_id`);
+
+--
+-- Índices para tabela `devolucao`
+--
+ALTER TABLE `devolucao`
+  ADD PRIMARY KEY (`id`,`receber_id`),
+  ADD KEY `fk_devolucao_ocorrencias1_idx` (`ocorrencias_id`),
+  ADD KEY `fk_devolucao_logisticas1_idx` (`logisticas_id`),
+  ADD KEY `fk_devolucao_entregadores1_idx` (`entregadores_id`),
+  ADD KEY `fk_devolucao_receber1_idx` (`receber_id`);
+
+--
+-- Índices para tabela `entrega`
+--
+ALTER TABLE `entrega`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_entrada_logisticas1_idx` (`logisticas_id`),
+  ADD KEY `fk_entrega_entregadores1_idx` (`entregadores_id`),
+  ADD KEY `fk_entrega_receber1_idx` (`receber_id`);
+
+--
 -- Índices para tabela `entregadores`
 --
 ALTER TABLE `entregadores`
-  ADD KEY `fk_entregadores_forma_pagamento_idx` (`forma_pagamento_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_entregador_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_entregadores_rotas1_idx` (`rotas_id`),
+  ADD KEY `fk_entregadores_regioes1_idx` (`regioes_id`),
+  ADD KEY `fk_entregadores_veiculos1_idx` (`veiculos_id`),
+  ADD KEY `fk_entregadores_forma_pagamento1_idx` (`forma_pagamento_id`);
 
 --
 -- Índices para tabela `forma_pagamento`
@@ -524,14 +533,275 @@ ALTER TABLE `forma_pagamento`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `gaiola`
+--
+ALTER TABLE `gaiola`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `logisticas`
+--
+ALTER TABLE `logisticas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_logistica_clientes1_idx` (`clientes_id`),
+  ADD KEY `fk_logistica_entregadores1_idx` (`entregadores_id`),
+  ADD KEY `fk_logisticas_servicos1_idx` (`servicos_id`),
+  ADD KEY `fk_logisticas_regioes1_idx` (`regioes_id`),
+  ADD KEY `fk_logisticas_receber1_idx` (`receber_id`);
+
+--
+-- Índices para tabela `ocorrencias`
+--
+ALTER TABLE `ocorrencias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_ocorrencias_usuarios1_idx` (`usuarios_id`);
+
+--
+-- Índices para tabela `receber`
+--
+ALTER TABLE `receber`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_receber_usuarios1_idx` (`usuarios_id`),
+  ADD KEY `fk_receber_clientes1_idx` (`clientes_id`),
+  ADD KEY `fk_receber_regioes1_idx` (`regioes_id`),
+  ADD KEY `fk_receber_rotas1_idx` (`rotas_id`),
+  ADD KEY `fk_receber_gaiola1_idx` (`gaiola_id`);
+
+--
+-- Índices para tabela `regioes`
+--
+ALTER TABLE `regioes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `rotas`
+--
+ALTER TABLE `rotas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_rotas_regioes1_idx` (`regioes_id`);
+
+--
+-- Índices para tabela `servicos`
+--
+ALTER TABLE `servicos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `setores`
+--
+ALTER TABLE `setores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `fk_usuarios_cargos_idx` (`cargos_id`),
+  ADD KEY `fk_usuarios_acessos1_idx` (`acessos_id`);
+
+--
+-- Índices para tabela `veiculos`
+--
+ALTER TABLE `veiculos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `acessos`
+--
+ALTER TABLE `acessos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `cargos`
+--
+ALTER TABLE `cargos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de tabela `carteira`
+--
+ALTER TABLE `carteira`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de tabela `devolucao`
+--
+ALTER TABLE `devolucao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+
+--
+-- AUTO_INCREMENT de tabela `entrega`
+--
+ALTER TABLE `entrega`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+
+--
+-- AUTO_INCREMENT de tabela `entregadores`
+--
+ALTER TABLE `entregadores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `forma_pagamento`
 --
 ALTER TABLE `forma_pagamento`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `gaiola`
+--
+ALTER TABLE `gaiola`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `logisticas`
+--
+ALTER TABLE `logisticas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+
+--
+-- AUTO_INCREMENT de tabela `ocorrencias`
+--
+ALTER TABLE `ocorrencias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `receber`
+--
+ALTER TABLE `receber`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+
+--
+-- AUTO_INCREMENT de tabela `regioes`
+--
+ALTER TABLE `regioes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT de tabela `rotas`
+--
+ALTER TABLE `rotas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- AUTO_INCREMENT de tabela `servicos`
+--
+ALTER TABLE `servicos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `setores`
+--
+ALTER TABLE `setores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de tabela `veiculos`
+--
+ALTER TABLE `veiculos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `carteira`
+--
+ALTER TABLE `carteira`
+  ADD CONSTRAINT `fk_carteira_entregadores1` FOREIGN KEY (`entregadores_id`) REFERENCES `entregadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD CONSTRAINT `fk_clientes_servicos1` FOREIGN KEY (`servicos_id`) REFERENCES `servicos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_clientes_setores1` FOREIGN KEY (`setores_id`) REFERENCES `setores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_clientes_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `devolucao`
+--
+ALTER TABLE `devolucao`
+  ADD CONSTRAINT `fk_devolucao_entregadores1` FOREIGN KEY (`entregadores_id`) REFERENCES `entregadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_devolucao_logisticas1` FOREIGN KEY (`logisticas_id`) REFERENCES `logisticas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_devolucao_ocorrencias1` FOREIGN KEY (`ocorrencias_id`) REFERENCES `ocorrencias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_devolucao_receber1` FOREIGN KEY (`receber_id`) REFERENCES `receber` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `entrega`
+--
+ALTER TABLE `entrega`
+  ADD CONSTRAINT `fk_entrada_logisticas1` FOREIGN KEY (`logisticas_id`) REFERENCES `logisticas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entrega_entregadores1` FOREIGN KEY (`entregadores_id`) REFERENCES `entregadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entrega_receber1` FOREIGN KEY (`receber_id`) REFERENCES `receber` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `entregadores`
+--
+ALTER TABLE `entregadores`
+  ADD CONSTRAINT `fk_entregador_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entregadores_forma_pagamento1` FOREIGN KEY (`forma_pagamento_id`) REFERENCES `forma_pagamento` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entregadores_regioes1` FOREIGN KEY (`regioes_id`) REFERENCES `regioes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entregadores_rotas1` FOREIGN KEY (`rotas_id`) REFERENCES `rotas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_entregadores_veiculos1` FOREIGN KEY (`veiculos_id`) REFERENCES `veiculos` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `logisticas`
+--
+ALTER TABLE `logisticas`
+  ADD CONSTRAINT `fk_logistica_clientes1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_logistica_entregadores1` FOREIGN KEY (`entregadores_id`) REFERENCES `entregadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_logisticas_receber1` FOREIGN KEY (`receber_id`) REFERENCES `receber` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_logisticas_regioes1` FOREIGN KEY (`regioes_id`) REFERENCES `regioes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_logisticas_servicos1` FOREIGN KEY (`servicos_id`) REFERENCES `servicos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `ocorrencias`
+--
+ALTER TABLE `ocorrencias`
+  ADD CONSTRAINT `fk_ocorrencias_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `receber`
+--
+ALTER TABLE `receber`
+  ADD CONSTRAINT `fk_receber_clientes1` FOREIGN KEY (`clientes_id`) REFERENCES `clientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_receber_gaiola1` FOREIGN KEY (`gaiola_id`) REFERENCES `gaiola` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_receber_regioes1` FOREIGN KEY (`regioes_id`) REFERENCES `regioes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_receber_rotas1` FOREIGN KEY (`rotas_id`) REFERENCES `rotas` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_receber_usuarios1` FOREIGN KEY (`usuarios_id`) REFERENCES `usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `rotas`
+--
+ALTER TABLE `rotas`
+  ADD CONSTRAINT `fk_rotas_regioes1` FOREIGN KEY (`regioes_id`) REFERENCES `regioes` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_usuarios_acessos1` FOREIGN KEY (`acessos_id`) REFERENCES `acessos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_usuarios_cargos` FOREIGN KEY (`cargos_id`) REFERENCES `cargos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

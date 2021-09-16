@@ -2,7 +2,7 @@
 
 require __DIR__.'../../../vendor/autoload.php';
 
-use \App\Entidy\Rota;
+use \App\Entidy\Receber;
 use   \App\Session\Login;
 
 
@@ -17,9 +17,9 @@ if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
     exit;
 }
 
-$item = Rota::getRotasID($_GET['id']);
+$value = Receber::getID('*','receber',$_GET['id'],null,null);
 
-if(!$item instanceof Rota){
+if(!$value instanceof Receber){
     header('location: index.php?status=error');
 
     exit;
@@ -30,9 +30,9 @@ if(!$item instanceof Rota){
 if(!isset($_POST['excluir'])){
     
  
-    $item->excluir();
+    $value->excluir();
 
-    header('location: rota-list.php?status=del');
+    header('location: receber-list.php?status=del');
 
     exit;
 }

@@ -12,7 +12,7 @@ if (isset($_GET['status'])) {
       case 'del':
          $icon  = 'error';
          $title = 'Parabéns';
-         $text = 'Esse usuário foi excluido !!!';
+         $text = 'Esse recebimento foi excluido !!!';
          break;
 
       case 'edit':
@@ -158,7 +158,12 @@ foreach ($listar as $item) {
                       </a>
                       &nbsp;
                        <a href="../logisticas/logistica-list.php?id=' . $item->id . '">
-                       <button type="button" class="btn btn-danger" ' . $disabled . '> <i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; DISTRIBUIR ITENS </button>
+                       <button type="button" class="btn btn-success" ' . $disabled . '> <i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; DISTRIBUIR ITENS </button>
+                       </a>
+                      
+                       &nbsp;
+                       <a href="receber-delete.php?id=' . $item->id . '">
+                       <button type="button" class="btn btn-danger" ' . $disabled . '>  <i class="fas fa-trash"></i></button>
                        </a>
 
 

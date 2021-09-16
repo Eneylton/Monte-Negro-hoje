@@ -253,7 +253,7 @@ foreach ($listar as $item) {
                       <td style="display:none">' . $item->clientes_id . '</td>
                       <td style="display:none">' . $item->entregadores_id . '</td>
                       <td style="display:none">' . $item->servicos_id . '</td>
-                      <td style="display:none">' . $item->entregadores . '</td>
+                      <td style="display:none">' . $item->apelido . '</td>
                       <td style="display:none">' . $item->servicos . '</td>
                       <td style="display:none">' . $item->clientes . '</td>
 
@@ -261,7 +261,7 @@ foreach ($listar as $item) {
                       
                       <td>' . $item->cod_id . '</td>
                       <td>' . $item->clientes . '</td>
-                      <td style="text-transform:uppercase"> <h5><span class="badge badge-pill badge-light"> <i class="fa fa-motorcycle" aria-hidden="true"></i> &nbsp;' . $item->entregadores . '</span></h5> </td>
+                      <td style="text-transform:uppercase"> <h5><span class="badge badge-pill badge-light"> <i class="fa fa-motorcycle" aria-hidden="true"></i> &nbsp;' . $item->apelido . '</span></h5> </td>
                       <td style="text-transform:uppercase">' . $item->regioes . '</td>
                       <td style="text-transform:uppercase">' . $item->servicos . '</td>
                       <td style="text-transform:uppercase">' . date('d/m/Y  Á\S  H:i:s', strtotime($item->data)) . '</td>
@@ -276,21 +276,14 @@ foreach ($listar as $item) {
                       </h4>
                       </td>
 
-                      <td style="text-align: center;">
-                        
-                      <button type="submit" class="btn btn-primary editbtn" disabled> <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                      &nbsp; ENTREGAS </button>
-                      &nbsp;
-                      <button type="submit" class="btn btn-danger editbtn2" disabled > <i class="fa fa-arrow-right" aria-hidden="true"></i> &nbsp; DEVOLUÇÕES </button>
                       
-                      </td>
                       </tr>
 
                       ';
 }
 
 $resultados = strlen($resultados) ? $resultados : '<tr>
-                                                     <td colspan="9" class="text-center" > Nenhuma entrega cadastrada !!!!! </td>
+                                                     <td colspan="8" class="text-center" > Nenhuma entrega cadastrada !!!!! </td>
                                                      </tr>';
 
 
@@ -366,7 +359,6 @@ foreach ($paginas as $key => $pagina) {
                            <th> PRAZO DE ENTREGA </th>
                            <th style="text-align: center; width:120px"> QTD </th>
 
-                           <th style="text-align: center; width:400px"> AÇÃO </th>
                         </tr>
                      </thead>
                      <tbody>

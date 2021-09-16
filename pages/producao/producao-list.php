@@ -23,7 +23,7 @@ if(isset($_POST['id'])){
 
     $entregadores = Entregador:: getList('e.id AS id, 
     r.descricao AS rota, 
-    e.nome AS entregadores,
+    e.apelido AS entregadores,
     rg.nome AS regiao','entregadores AS e
     INNER JOIN
     rotas AS r ON (e.rotas_id = r.id)
@@ -59,7 +59,7 @@ $qtd = Logistica:: getQtd($where);
 $pagination = new Pagination($qtd, $_GET['pagina'] ?? 1, 5);
 
 $listar = Logistica::getList('l.id AS id,l.cod_id AS cod_id,l.data AS data,l.data_inicio AS data_inicio,l.data_fim AS data_fim,l.qtd AS qtd,
-                              e.nome AS entregadores,s.nome AS servicos,c.nome AS clientes,rg.nome AS regioes,l.receber_id AS receber_id,l.servicos_id AS servicos_id,
+                              e.apelido AS entregadores,s.nome AS servicos,c.nome AS clientes,rg.nome AS regioes,l.receber_id AS receber_id,l.servicos_id AS servicos_id,
                               l.entregadores_id AS entregadores_id,l.clientes_id AS clientes_id,l.regioes_id AS regioes_id',
                               'logisticas AS l
                               INNER JOIN

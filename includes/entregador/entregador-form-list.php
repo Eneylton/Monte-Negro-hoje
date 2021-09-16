@@ -323,7 +323,7 @@ foreach ($paginas as $key => $pagina) {
                   <div class="col-4">
                      <div class="form-group">
                         <label>Regiao</label>
-                        <select class="form-control select" style="width: 100%;" name="regioes" id="regioes">
+                        <select class="form-control select" style="width: 100%;" name="regioes" id="regioes" required>
                            <option value=""> Selecione uma região </option>
                            <?php
 
@@ -340,7 +340,7 @@ foreach ($paginas as $key => $pagina) {
                      <div class="form-group">
 
                         <label>Rota</label>
-                        <select class="form-control" name="rota" id="rota"></select>
+                        <select class="form-control" name="rota" id="rota" required></select>
                      </div>
                   </div>
 
